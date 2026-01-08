@@ -295,10 +295,18 @@ public interface WorkflowController extends Remote {
 	       InvalidTransactionException;
 
     /** Reserve a room for this customer at the specified location. */
-    public boolean reserveRoom(int xid, String custName, String location)
-	throws RemoteException,
+    public boolean reserveRoom(int xid, String custName, String location) 
+	throws RemoteException, 
 	       TransactionAbortedException,
 	       InvalidTransactionException;
+
+    /**
+     * Reserve an itinerary including multiple flights and optional car/room.
+     */
+    public boolean reserveItinerary(int xid, String custName, List flightNumList, String location, boolean needCar, boolean needRoom)
+        throws RemoteException,
+        TransactionAbortedException,
+        InvalidTransactionException;
 
     //////////
     // TECHNICAL/TESTING INTERFACE
